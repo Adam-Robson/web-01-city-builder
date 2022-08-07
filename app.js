@@ -10,11 +10,11 @@ const cityImage = document.getElementById('city-image');
 const countryImage = document.getElementById('country-image');
 const waterImage = document.getElementById('water-image');
 const totalsCount = document.getElementById('totals-count');
-const selectImage = document.getElementsByClassName('select-images');
+const selectImages = document.getElementsByClassName('select-images');
 
 
 const slogansArray = [];
-const allImages = [];
+const allImages = [cityImage, countryImage, waterImage];
 
 let timesCityChange = 0;
 let timesWaterChange = 0;
@@ -56,3 +56,4 @@ waterSelect.addEventListener('change', () => {
     renderImage();
     updateTotals();
 }); 
+a
