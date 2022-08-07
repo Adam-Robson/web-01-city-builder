@@ -1,7 +1,10 @@
 // import functions and grab DOM elements
+
+import { updateTotals, renderCityImage, renderCountryImage, renderWaterImage } from './render.js';
+
 const addSloganButton = document.getElementById('add-slogan-button');
 const sloganInput = document.getElementById('slogan-input');
-const slogansDisplay = document.getElementById('slogan-display');
+const slogansDisplay = document.getElementById('slogans-display');
 const citySelect = document.getElementById('city-select');
 const countrySelect = document.getElementById('country-select');
 const waterSelect = document.getElementById('water-select');
@@ -9,48 +12,46 @@ const cityImage = document.getElementById('city-image');
 const countryImage = document.getElementById('country-image');
 const waterImage = document.getElementById('water-image');
 const totalsCount = document.getElementById('totals-count');
-// let state
-// eslint-disable-next-line no-undef
+
 const slogansArray = [];
+const cityImagesArray = [];
+const countryImagesArray = [];
+const waterImagesArray = [];
+
 let timesCityChange = 0;
 let timesWaterChange = 0;
 let timesCountryChange = 0;
+let totalChanges = 0;
+
+
 // set event listeners
 addSloganButton.addEventListener('click', () => {
     slogansDisplay.textContent = '';
-    const newSlogan = sloganInput.value;
-    slogansArray.push(newSlogan);
+    const slogan = sloganInput.value;
+    totalChanges++;
+    slogansArray.push(slogan);
     slogansDisplay.textContent = slogansArray;
+    sloganInput.value = '';
 });
 
+
 citySelect.addEventListener('change', () => {
-    cityImage.value = '';
-    const img = document.createElement('img');
-    img.src = `./assets/${citySelect}.png`;
     timesCityChange++;
+    totalChanges++;
     updateTotals();
-    cityImage.append(img);
-}); 
+});
 
 countrySelect.addEventListener('change', () => {
-    countryImage.value = '';
-    const img = document.createElement('img');
-    img.src = `./assets/${countrySelect}.png`;
+    const countryOption = countrySelect.value;
     timesCountryChange++;
+    countryImage.style.backgroundImage = `url('./assets/${countryOption}.png')`;
+    render
     updateTotals();
-    countryImage.append(img);
 }); 
 
 waterSelect.addEventListener('change', () => {
-    waterImage.value = '';
-    const img = document.createElement('img');
-    img.src = `url('./assets/${waterSelect}.png')`;
+    const waterOption = waterImage.value;
     timesWaterChange++;
+    waterImage.style.backgroundImage = `url('./assets/${waterOption}.png')`;
     updateTotals();
-    waterImage.append(img);
 }); 
-
-function updateTotals(){
-    totalsCount.textContent = '';
-    totalsCount.textContent = `You changed city ${timesCityChange} country ${timesCountryChange} & water ${timesWaterChange} times.`;
-}
