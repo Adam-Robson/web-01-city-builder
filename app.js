@@ -14,7 +14,7 @@ const waterImage = document.getElementById('water-image');
 const totalsCount = document.getElementById('totals-count');
 
 const slogansArray = [];
-const cityImagesArray = [];
+const cityImages = ['./assets/tulum.png', './assets/chicago.png', './assets/cairo.png'];
 const countryImagesArray = [];
 const waterImagesArray = [];
 
@@ -28,30 +28,30 @@ let totalChanges = 0;
 addSloganButton.addEventListener('click', () => {
     slogansDisplay.textContent = '';
     const slogan = sloganInput.value;
-    totalChanges++;
     slogansArray.push(slogan);
     slogansDisplay.textContent = slogansArray;
     sloganInput.value = '';
+    totalChanges++;
 });
 
 
 citySelect.addEventListener('change', () => {
     timesCityChange++;
     totalChanges++;
+    renderCityImage();
     updateTotals();
 });
 
 countrySelect.addEventListener('change', () => {
     const countryOption = countrySelect.value;
     timesCountryChange++;
-    countryImage.style.backgroundImage = `url('./assets/${countryOption}.png')`;
-    render
+    renderCountryImage();
     updateTotals();
 }); 
 
 waterSelect.addEventListener('change', () => {
     const waterOption = waterImage.value;
     timesWaterChange++;
-    waterImage.style.backgroundImage = `url('./assets/${waterOption}.png')`;
+    renderWaterImage();
     updateTotals();
 }); 
