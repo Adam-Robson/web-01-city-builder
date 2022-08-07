@@ -1,6 +1,4 @@
-// import functions and grab DOM elements
-
-import { updateTotals, renderCityImage, renderCountryImage, renderWaterImage } from './render.js';
+import {updateTotals, displaySlogan, renderImage} from './render.js';
 
 const addSloganButton = document.getElementById('add-slogan-button');
 const sloganInput = document.getElementById('slogan-input');
@@ -12,11 +10,11 @@ const cityImage = document.getElementById('city-image');
 const countryImage = document.getElementById('country-image');
 const waterImage = document.getElementById('water-image');
 const totalsCount = document.getElementById('totals-count');
+const selectImage = document.getElementsByClassName('select-images');
+
 
 const slogansArray = [];
-const cityImages = ['./assets/tulum.png', './assets/chicago.png', './assets/cairo.png'];
-const countryImagesArray = [];
-const waterImagesArray = [];
+const allImages = [];
 
 let timesCityChange = 0;
 let timesWaterChange = 0;
@@ -24,34 +22,34 @@ let timesCountryChange = 0;
 let totalChanges = 0;
 
 
+
 // set event listeners
 addSloganButton.addEventListener('click', () => {
     slogansDisplay.textContent = '';
     const slogan = sloganInput.value;
     slogansArray.push(slogan);
-    slogansDisplay.textContent = slogansArray;
     sloganInput.value = '';
     totalChanges++;
+    displaySlogan();
 });
 
-
 citySelect.addEventListener('change', () => {
+    const value = citySelect.value;
     timesCityChange++;
-    totalChanges++;
-    renderCityImage();
+    cityImage.style.backgroundImage = `url('./assets/${value}.png')`;
     updateTotals();
 });
 
 countrySelect.addEventListener('change', () => {
-    const countryOption = countrySelect.value;
+    const value = countrySelect.value;
     timesCountryChange++;
-    renderCountryImage();
+    countryImage.style.backgroundImage = `url('./assets/${value}.png')`;
     updateTotals();
 }); 
 
 waterSelect.addEventListener('change', () => {
-    const waterOption = waterImage.value;
+    const value = waterImage.value;
     timesWaterChange++;
-    renderWaterImage();
+    waterImage.style.backgroundImage = `url('./assets/${value}.png')`;
     updateTotals();
 }); 
