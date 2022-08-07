@@ -1,4 +1,4 @@
-import {updateTotals, displaySlogan, renderImage} from './render.js';
+import { updateTotals, displaySlogan, renderImage } from './render.js';
 
 const addSloganButton = document.getElementById('add-slogan-button');
 const sloganInput = document.getElementById('slogan-input');
@@ -37,6 +37,7 @@ citySelect.addEventListener('change', () => {
     const value = citySelect.value;
     timesCityChange++;
     cityImage.style.backgroundImage = `url('./assets/${value}.png')`;
+    renderImage();
     updateTotals();
 });
 
@@ -44,6 +45,7 @@ countrySelect.addEventListener('change', () => {
     const value = countrySelect.value;
     timesCountryChange++;
     countryImage.style.backgroundImage = `url('./assets/${value}.png')`;
+    renderImage();
     updateTotals();
 }); 
 
@@ -51,5 +53,6 @@ waterSelect.addEventListener('change', () => {
     const value = waterImage.value;
     timesWaterChange++;
     waterImage.style.backgroundImage = `url('./assets/${value}.png')`;
+    renderImage();
     updateTotals();
 }); 

@@ -9,9 +9,6 @@ export function renderImage() {
     }
 }
 
-
-
-
 //fixed
 export function displaySlogan() {
         slogansDisplay.textContent = '';
@@ -24,5 +21,5 @@ export function displaySlogan() {
 
 export function updateTotals() {
     totalsCount.textContent = '';
-    totalsCount.textContent = `You changed city ${timesCityChange} country ${timesCountryChange} & water ${timesWaterChange} times.`;
+    totalsCount.textContent = `You changed city ${timesCityChange} country ${timesCountryChange} & water ${timesWaterChange} times. ${totalChanges} changes total.`;
 }
