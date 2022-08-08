@@ -1,57 +1,55 @@
-// import functions and grab DOM elements
 
-import { updateTotals, renderCityImage, renderCountryImage, renderWaterImage } from './render.js';
-
-const addSloganButton = document.getElementById('add-slogan-button');
+const waterFeature = document.getElementById('water-feature');
+const displayWater = document.getElementById('display-water');
+const cityFeature = document.getElementById('city-feature');
+const displayCity = document.getElementById('display-city');
+const stats =  document.getElementById('stats');
 const sloganInput = document.getElementById('slogan-input');
-const slogansDisplay = document.getElementById('slogans-display');
-const citySelect = document.getElementById('city-select');
-const countrySelect = document.getElementById('country-select');
-const waterSelect = document.getElementById('water-select');
-const cityImage = document.getElementById('city-image');
-const countryImage = document.getElementById('country-image');
-const waterImage = document.getElementById('water-image');
-const totalsCount = document.getElementById('totals-count');
+const addButton = document.getElementById('add-button');
+const sloganDisplay = document.getElementById('slogan-display');
 
-const slogansArray = [];
-const cityImages = ['./assets/tulum.png', './assets/chicago.png', './assets/cairo.png'];
-const countryImagesArray = [];
-const waterImagesArray = [];
+let slogans = [];
 
-let timesCityChange = 0;
-let timesWaterChange = 0;
-let timesCountryChange = 0;
-let totalChanges = 0;
+let cityChanged = 0;
+let waterChanged = 0; 
 
 
-// set event listeners
-addSloganButton.addEventListener('click', () => {
-    slogansDisplay.textContent = '';
-    const slogan = sloganInput.value;
-    slogansArray.push(slogan);
-    slogansDisplay.textContent = slogansArray;
-    sloganInput.value = '';
-    totalChanges++;
+function displayStats ()
+{
+        stats.textContent = `You changed the water ${waterChanged} times and the city ${cityChanged} times.`
+};
+
+function displaySlogans ()
+{
+        sloganDisplay.textContent = '';
+        for (let slogan of slogans)
+        {
+                const nuSlogan = document.createElement('p');
+                nuSlogan.textContent = slogan;
+                nuSlogan.classList.add('slogan');
+                sloganDisplay.append(nuSlogan);
+        };
+};
+
+addButton.addEventListener('click', () =>
+{
+        const val = sloganInput.value;
+        slogans.push(val);
+        displaySlogans();
+        sloganInput.value = '';
 });
 
+cityFeature.addEventListener('change', () =>
+{
+        displayCity.src = `assets/${cityFeature}.png`;
+        cityChanged++;
+        displayStats();
+}),
+        
 
-citySelect.addEventListener('change', () => {
-    timesCityChange++;
-    totalChanges++;
-    renderCityImage();
-    updateTotals();
-});
-
-countrySelect.addEventListener('change', () => {
-    const countryOption = countrySelect.value;
-    timesCountryChange++;
-    renderCountryImage();
-    updateTotals();
-}); 
-
-waterSelect.addEventListener('change', () => {
-    const waterOption = waterImage.value;
-    timesWaterChange++;
-    renderWaterImage();
-    updateTotals();
-}); 
+waterFeature.addEventListener('change', () =>
+{
+        displayWater.src = `assets/${waterFeature}.png`
+        waterChanged++;
+        displayStats();
+})

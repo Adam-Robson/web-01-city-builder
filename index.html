@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,54 +13,39 @@
     <link rel="stylesheet" href="/styles/global.css" />
     <title>Web App</title>
 </head>
-
 <body>
-    <header>
-        <img src="/assets/html_css_js.png">
-        <h1>Web App</h1>
-    </header>
-
     <main>
-        <input type="text" name="nickName">
-        <section>
-            <br><hr><br>
-            <label for="city-select">the city of...</label>
-                <select id="city-select" name="city" size="3">
-                    <option value="cairo" id="cairo">cairo</option>
-                    <option value="tulum" id="tulum">tulum</option>
-                    <option value="chicago" id="chicago">chicago</option>
+            <label>
+                City Name:
+                <input id="slogan-input" placeholder="type slogan" />
+                    <button id="add-button" type="button">add</button>
+            </label>
+                <div id="slogan-display"></div>
+
+                <img id="display-city">
+                <img id="display-water">
+                
+                <div id="stats"></div>
+            
+            <div id="div-title"></div>
+
+            <label for="city-feature">Pick a city
+                <select name="city" id="city-feature">
+                    <option value="" selected></option>
+                    <option value="cairo"> cairo</option>
+                    <option value="chicago">chicago</option> 
                 </select>
-                <div id="city-select-image"></div>
-                <br><hr><br>
-            <label for="country-select">...is in what country...</label>
-                <select id="country-select" name="country" size="3">
-                    <option value="mexico" id="mexico">mexico</option>
-                    <option value="us" id="us">us</option>
-                    <option value="egypt" id="egypt">egypt</option>
+            </label>
+            <label for="water-feature">and a water feature!
+                <select name="water" id="water-feature">
+                    <option value="" selected></option>
+                    <option value="ocean">ocean</option>
+                    <option value="lake">lake</option>
+                    <option value="river">river</option>
                 </select>
-                <div id="country-select-image"></div>
-                <br><hr><br>
-            <label for="water-select">...with what body of water?</label>
-                <select  id="water-select" name="water" size="3">
-                    <option value="river" id="river">river</option>
-                    <option value="beach" id="beach">beach</option>
-                    <option value="lake" id="lake">lake</option>
-                </select>
-                <div id="water-select-image"></div>
-                <br><hr><br>
-            <p id="totals-count"></p>
-            <br><hr><br>
-        </section>
-        <section id="slogan-container">
-            <p id="slogans-display"></p>
-            <input type="text" id="slogan-input">
-            <button id="add-slogan-button">add slogan</button>
-        </section>
+            </label>
+                <script type="module" src="./app.js"></script>
     </main>
-
-    <footer>&copy;2022 Software Developer</footer>
-
-    <script type="module" src="app.js"></script>
 </body>
 
 </html>
