@@ -1,65 +1,56 @@
-import { updateTotals, renderImage } from './render.js';
+import { displayTitle, renderCityImage, renderCountryImage, renderWaterImage, updateStats } from 'render.js';
 
-const addSloganButton = document.getElementById('add-slogan-button');
-const sloganInput = document.getElementById('slogan-input');
-const sloganDisplay = document.getElementById('slogan-display');
-const citySelect = document.getElementById('city-select');
-const countrySelect = document.getElementById('country-select');
-const waterSelect = document.getElementById('water-select');
-const totalsCount = document.getElementById('totals-count');
-const selectImages = document.getElementsByClassName('select-images');
+const inputTitle = document.getElementById('title');
+const pageTitle = document.getElementById('page-title');
+const buttonTitle = document.getElementById('button-title');
+const selectCity = document.getElementById('select-city');
+const selectCountry = document.getElementById('select-country');
+const selectWater = document.getElementById('select-water');
+const displayedCity = document.getElementById('displayed-city');
+const displayedCountry = document.getElementById('displayed-country');
+const displayedWater = document.getElementById('displayed-water');
+const displayedStats = document.getElementById('displayed-stats');
 
-let sloganArray = [];
+let titlesArray = [];
+let cityImages = ['./assets/cairo.png', './assets/tulum.png', './assets/chicago.png',];
+let countryImages = ['./assets/us.png', './assets/mexico.png', './assets/egypt.png'];
+let waterImages = ['./assets/river.png', './assets/lake.png', './assets/ocean.png'];
 
-let timesCityChange = 0;
-let timesWaterChange = 0;
-let timesCountryChange = 0;
-let totalChanges = 0;
 
-function displaySlogan ()
+
+let cityChanged = 0;
+let countryChanged = 0;
+let waterChanged = 0; 
+let totalChanged = 0;
+
+buttonTitle.addEventListener('click', () =>
 {
-    let nuArray = [];
-    const input = sloganInput.value;
-    nuArray.push(input);
-    sloganInput.value = '';
-    for (let input of nuArray)
-    {
-        const p = document.createElement('p');
-        p.classList.add('slogans-to-show');
-        p.textContent = input;
-        sloganDisplay.append(p);
-        return sloganDisplay;
-    }
-}; 
-
-// set event listeners
-
-
-addSloganButton.addEventListener('click', () =>
-{
-    displaySlogan();
-});
-    
-citySelect.addEventListener('change', () => {
-    const value = citySelect.value;
-    timesCityChange++;
-    cityImage.style.backgroundImage = `url('./assets/${value}.png')`;
-    renderImage();
-    updateTotals();
+        displayTitle();
 });
 
-countrySelect.addEventListener('change', () => {
-    const value = countrySelect.value;
-    timesCountryChange++;
-    countryImage.style.backgroundImage = `url('./assets/${value}.png')`;
-    renderImage();
-    updateTotals();
-}); 
+selectCity.addEventListener('change', () =>
+{
+        const image = selectCity.value;
+        cityChanged++;
+        displayedCity.style.backgroundImage = `url('./assets/${image}.png')`;
+        renderImage();
+        updateStats()
+})
 
-waterSelect.addEventListener('change', () => {
-    const value = waterImage.value;
-    timesWaterChange++;
-    waterImage.style.backgroundImage = `url('./assets/${value}.png')`;
-    renderImage();
-    updateTotals();
-}); 
+selectCountry.addEventListener('change', () =>
+{
+        const image = selectCountry.value;
+        countryChanged++;
+        displayedCountry.style.backgroundImage = `url('./assets/${image}.png')`;
+        renderImage();
+        updateStats();
+})
+
+selectWater.addEventListener('change', () =>
+{
+        const image = selectWater.value;
+        waterChanged++;
+        displayedWater.style.backgroundImage = `url('./assets/${image}.png')`;
+        renderImage();
+        updateStats();
+})
