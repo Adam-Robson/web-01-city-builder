@@ -17,42 +17,33 @@
     <main>
             <label>
                 City Name:
-                <input id="title" placeholder="type city name" />
-                    <button id="button-title" type="button">add</button>
+                <input id="slogan-input" placeholder="type slogan" />
+                    <button id="add-button" type="button">add</button>
             </label>
-                 <div id="page-title">
+                <div id="slogan-display"></div>
 
-                 </div>
-            <section id="images" >
-                <div id="displayed-city"></div>
-                <div id="displayed-country"></div>
-                <div id="displayed-water"></div>
-            </section>
+                <img id="display-city">
+                <img id="display-water">
+                
+                <div id="stats"></div>
+            
             <div id="div-title"></div>
-            <label for="select-city">Pick a city
-                <select name="city" id="select-city"></label>
+
+            <label for="city-feature">Pick a city
+                <select name="city" id="city-feature">
                     <option value="" selected></option>
-                    <option value="tulum">tulum</option>
-                    <option value="chicago">chicago</option>
-                    <option value="cairo">cairo</option> 
+                    <option value="cairo"> cairo</option>
+                    <option value="chicago">chicago</option> 
                 </select>
-            <label for="select-country">and a country
-                <select name="country" id="select-country"></label>
-                    <option value="" selected></option>
-                    <option value="mexico">mexico</option>
-                    <option value="US">US</option>
-                    <option value="egypt">egypt</option>
-                </select>                
-            <label for="select-water">and a water feature!
-                <select name="water" id="select-water"></label>
+            </label>
+            <label for="water-feature">and a water feature!
+                <select name="water" id="water-feature">
                     <option value="" selected></option>
                     <option value="ocean">ocean</option>
                     <option value="lake">lake</option>
                     <option value="river">river</option>
                 </select>
-                <span>
-                    
-                </span>
+            </label>
                 <script type="module" src="./app.js"></script>
     </main>
 </body>
