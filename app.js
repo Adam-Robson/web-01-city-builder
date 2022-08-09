@@ -38,22 +38,22 @@ addCityButton.addEventListener('click', () =>
 });     
 
 cityFeature.addEventListener('change', () => {
-        cityImage.src = `/assets/${cityFeature}-city.png`
+        cityImage.src = `./assets/${cityFeature.value}.png`
         cityImage.alt = 'a photo of a city feature'
         cityCount++;
         displayStatsFunction();
 })
 
 countryFeature.addEventListener('change', () => {
-        console.log(countryFeature.value)
         countryImage.src = `./assets/${countryFeature.value}-country.png`
-        countryImage.alt = 'a photo of a water feature'
-        waterCount++;
+        countryImage.alt = 'a photo of a coutry feature'
+        countryCount++;
         displayStatsFunction();
 })
 
 waterFeature.addEventListener('change', () => {
-        waterImage.src = `/assets/${waterFeature}-water.png`
+        waterImage.src = '';
+        waterImage.src = `./assets/${waterFeature.value}-water.png`
         waterImage.alt = 'a photo of a water feature'
         waterCount++;
         displayStatsFunction();
