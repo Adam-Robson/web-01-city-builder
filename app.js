@@ -61,7 +61,7 @@ waterFeature.addEventListener('change', () => {
 function displayStatsFunction() {
     displayStats.textContent = '';
     displayStats.textContent = `You have changed the city feature ${cityCount} times, the country feature ${countryCount} times and the water feature ${waterCount} times.`;
-};
+}
 
 function displaySlogan(){
     sloganDisplay.textContent = '';
@@ -69,9 +69,9 @@ function displaySlogan(){
     slogansArray.push(userSlogan);
     sloganInput.value = '';
     for (let slogan of slogansArray) {
-    const pTag = document.createElement('p');
-    pTag.textContent = slogan
-    sloganDisplay.append(pTag);
+        const pTag = document.createElement('p');
+        pTag.textContent = slogan;
+        sloganDisplay.append(pTag);
     }
     return sloganDisplay;
-};
+}
