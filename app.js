@@ -21,12 +21,11 @@ let countryCount = 0;
 let slogansArray = [];
 
 addSloganButton.addEventListener('click', () => {
-
-    sloganDisplay.textContent = '';
-    let userSlogan = sloganInput.value;
-    slogansArray.push(userSlogan);
-    sloganDisplay.textContent = slogansArray;
-    sloganInput.value = '';
+    // let userSlogan = sloganInput.value;
+    // slogansArray.push(userSlogan);
+    // sloganInput.value = '';
+    // sloganDisplay.textContent = slogansArray;
+    displaySlogan();
 });
 
 addCityButton.addEventListener('click', () =>
@@ -62,4 +61,17 @@ waterFeature.addEventListener('change', () => {
 function displayStatsFunction() {
     displayStats.textContent = '';
     displayStats.textContent = `You have changed the city feature ${cityCount} times, the country feature ${countryCount} times and the water feature ${waterCount} times.`;
-}
+};
+
+function displaySlogan(){
+    sloganDisplay.textContent = '';
+    const userSlogan = sloganInput.value;
+    slogansArray.push(userSlogan);
+    sloganInput.value = '';
+    for (let slogan of slogansArray) {
+    const pTag = document.createElement('p');
+    pTag.textContent = slogan
+    sloganDisplay.append(pTag);
+    }
+    return sloganDisplay;
+};
