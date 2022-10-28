@@ -1,55 +1,77 @@
-
-const waterFeature = document.getElementById('water-feature');
-const displayWater = document.getElementById('display-water');
-const cityFeature = document.getElementById('city-feature');
-const displayCity = document.getElementById('display-city');
-const stats =  document.getElementById('stats');
+const cityNameInput = document.getElementById('city-name-input');
+const addCityButton = document.getElementById('add-city-button');
+const cityNameDisplay = document.getElementById('city-name-display');
 const sloganInput = document.getElementById('slogan-input');
-const addButton = document.getElementById('add-button');
+const addSloganButton = document.getElementById('add-slogan-button');
 const sloganDisplay = document.getElementById('slogan-display');
+const cityImage = document.getElementById('city-image');
+const countryImage = document.getElementById('country-image');
+const cityFeature = document.getElementById('city-feature');
+const waterImage = document.getElementById('water-image');
+const waterFeature = document.getElementById('water-feature');
+const countryFeature = document.getElementById('country-feature');
 
-let slogans = [];
+const displayStats = document.getElementById('display-stats');
 
-let cityChanged = 0;
-let waterChanged = 0; 
+let cityCount = 0;
+let waterCount = 0; 
+let countryCount = 0;
 
 
-function displayStats ()
-{
-        stats.textContent = `You changed the water ${waterChanged} times and the city ${cityChanged} times.`
-};
+let slogansArray = [];
 
-function displaySlogans ()
-{
-        sloganDisplay.textContent = '';
-        for (let slogan of slogans)
-        {
-                const nuSlogan = document.createElement('p');
-                nuSlogan.textContent = slogan;
-                nuSlogan.classList.add('slogan');
-                sloganDisplay.append(nuSlogan);
-        };
-};
-
-addButton.addEventListener('click', () =>
-{
-        const val = sloganInput.value;
-        slogans.push(val);
-        displaySlogans();
-        sloganInput.value = '';
+addSloganButton.addEventListener('click', () => {
+    // let userSlogan = sloganInput.value;
+    // slogansArray.push(userSlogan);
+    // sloganInput.value = '';
+    // sloganDisplay.textContent = slogansArray;
+    displaySlogan();
 });
 
-cityFeature.addEventListener('change', () =>
+addCityButton.addEventListener('click', () =>
 {
-        displayCity.src = `assets/${cityFeature}.png`;
-        cityChanged++;
-        displayStats();
-}),
-        
+    cityNameDisplay.textContent = '';
+    let userCityName = cityNameInput.value;
+    cityNameDisplay.textContent = userCityName;
+    cityNameInput.value = '';
+});     
 
-waterFeature.addEventListener('change', () =>
-{
-        displayWater.src = `assets/${waterFeature}.png`
-        waterChanged++;
-        displayStats();
-})
+cityFeature.addEventListener('change', () => {
+    cityImage.src = `./assets/${cityFeature.value}.png`;
+    cityImage.alt = 'a photo of a city feature';
+    cityCount++;
+    displayStatsFunction();
+});
+
+countryFeature.addEventListener('change', () => {
+    countryImage.src = `./assets/${countryFeature.value}-country.png`;
+    countryImage.alt = 'a photo of a coutry feature';
+    countryCount++;
+    displayStatsFunction();
+});
+
+waterFeature.addEventListener('change', () => {
+    waterImage.src = '';
+    waterImage.src = `./assets/${waterFeature.value}-water.png`;
+    waterImage.alt = 'a photo of a water feature';
+    waterCount++;
+    displayStatsFunction();
+});
+
+function displayStatsFunction() {
+    displayStats.textContent = '';
+    displayStats.textContent = `You have changed the city feature ${cityCount} times, the country feature ${countryCount} times and the water feature ${waterCount} times.`;
+}
+
+function displaySlogan(){
+    sloganDisplay.textContent = '';
+    const userSlogan = sloganInput.value;
+    slogansArray.push(userSlogan);
+    sloganInput.value = '';
+    for (let slogan of slogansArray) {
+        const pTag = document.createElement('p');
+        pTag.textContent = slogan;
+        sloganDisplay.append(pTag);
+    }
+    return sloganDisplay;
+}
