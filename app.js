@@ -14,17 +14,17 @@ const countryFeature = document.getElementById('country-feature');
 const displayStats = document.getElementById('display-stats');
 
 let cityCount = 0;
-let waterCount = 0; 
+let waterCount = 0;
 let countryCount = 0;
 
 
 let slogansArray = [];
 
 addSloganButton.addEventListener('click', () => {
-    // let userSlogan = sloganInput.value;
-    // slogansArray.push(userSlogan);
-    // sloganInput.value = '';
-    // sloganDisplay.textContent = slogansArray;
+    let userSlogan = sloganInput.value;
+    slogansArray.push(userSlogan);
+    sloganInput.value = '';
+    sloganDisplay.textContent = slogansArray;
     displaySlogan();
 });
 
@@ -34,7 +34,7 @@ addCityButton.addEventListener('click', () =>
     let userCityName = cityNameInput.value;
     cityNameDisplay.textContent = userCityName;
     cityNameInput.value = '';
-});     
+});
 
 cityFeature.addEventListener('change', () => {
     cityImage.src = `./assets/${cityFeature.value}.png`;
