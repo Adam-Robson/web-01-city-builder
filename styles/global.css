@@ -99,3 +99,12 @@ justify-content: center;
 align-items: center;
 margin-top: 20px;
 }
+
+#display-stats {
+color: cadetblue;
+font-size: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
