@@ -1,6 +1,6 @@
 :root {
-    --background: rgb(175, 246, 178);
-    --header-background: white;
+    --background: rgb(72, 105, 119);
+    --header-background: rgb(171, 203, 231);
     --footer-background: rgb(243, 242, 242);
 }
 
@@ -18,6 +18,8 @@ header {
     top: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: var(--header-background);
 }
 
@@ -35,33 +37,65 @@ footer {
     background-color: var(--footer-background);
 }
 
+#city-name-input {
+margin: 25px
+}
+
+#slogan-input {
+    margin: 25px;
+}
+
 #city-name-display {
     text-align: center;
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color:cadetblue;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#addSloganButton {
-    color: rgb(255, 207, 95);
+#add-slogan-button {
+    color: rgb(191, 219, 222);
+    background-color:rgb(53, 116, 210);
     font-size: 10px;
-    line-height: 10px;
     padding: 4px;
-    border-radius: 32px;
-    font-family: Georgia, serif;
-    font-weight: normal;
-    text-decoration: none;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
-    background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
-    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
-    border: 2px solid rgb(28, 110, 164);
-    display: inline-block;
+    border-radius: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); */
     cursor: pointer;
 }
-#addSloganButton:hover {
-background: #1C6EA4; }
-#addSloganButton:active {
-background: #144E75; }
+#add-slogan-button:hover {
+    background: #1C6EA4;
+}
+
+#add-slogan-button:active {
+    background: #144E75;
+}
+
+#add-city-button {
+    color: rgb(177, 218, 225);
+    background-color:rgb(54, 111, 168);
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 9px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); */
+    cursor: pointer;
+}
+#add-city-button:hover {
+    background: #1C6EA4;
+}
+
+#add-city-button:active {
+    background: #144E75;
+}
+
+#slogan-display {
+color: cadetblue;
+font-size: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
